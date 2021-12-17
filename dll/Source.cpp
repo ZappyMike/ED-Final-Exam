@@ -5,8 +5,8 @@
 extern "C"
 {
 
-	int EXPORT_API NewHP()
+	float EXPORT_API NewSP()
 	{
-		return 5;
+		return 5.f;
 	}
 }

@@ -3,36 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.SceneManagement;
-using System;
-using System.Runtime.InteropServices;
+
 
 public class move : MonoBehaviour
 {
-
-    [DllImport("dll")]
-    private static extern int NewHP();
-
     private Rigidbody rb;
     public float speed;
     private float dirX, dirY;
-    public float health = 3;
+    public float health;
+    public float lives = 2;
 
     public GameObject bullet;
     private Vector3 spawnPoint;
 
     void Start()
     {
-        speed = 3f;
+        speed = 3;
         rb = GetComponent<Rigidbody>();
-        health = NewHP();
+        health = 1;
     }
 
     void Update()
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("ded");
+            lives -= 1;
+
+            if (lives <= 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene("ded");
+            }
+            else
+            {
+                health = 1;
+                transform.position = new Vector3(0.0345848f, -0.3871903f, -0.2714081f);
+            }
+
         }
 
         dirX = Input.GetAxis("Horizontal") * speed;
