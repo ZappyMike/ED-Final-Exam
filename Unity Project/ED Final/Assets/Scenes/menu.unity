@@ -648,7 +648,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1737732065}
         m_TargetAssemblyTypeName: Scene_Change, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

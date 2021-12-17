@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.SceneManagement;
+using System;
+using System.Runtime.InteropServices;
 
 public class move : MonoBehaviour
 {
 
+    [DllImport("dll")]
+    private static extern int NewHP();
+
     private Rigidbody rb;
     public float speed;
     private float dirX, dirY;
-    public float health;
+    public float health = 3;
 
     public GameObject bullet;
     private Vector3 spawnPoint;
@@ -19,7 +24,7 @@ public class move : MonoBehaviour
     {
         speed = 3f;
         rb = GetComponent<Rigidbody>();
-        health = 3;
+        health = NewHP();
     }
 
     void Update()

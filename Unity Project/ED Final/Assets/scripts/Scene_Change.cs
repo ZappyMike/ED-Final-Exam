@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Change : MonoBehaviour
 {
-    public void Start()
+    public void start()
     {
         SceneManager.LoadScene("SampleScene");
     }
